@@ -1,0 +1,37 @@
+package com.mohsenoid.abcs.theme
+
+import androidx.compose.ui.graphics.Color
+
+val Sunglo = Color(0xFFE16865)
+val Riptide = Color(0xFF8BE6D8)
+val SandyBrown = Color(0xFFF4A460)
+
+val Purple40 = Color(0xFF6650a4)
+val PurpleGrey40 = Color(0xFF625b71)
+val Pink40 = Color(0xFF7D5260)
+
+val Black = Color(0xFF000000)
+val White = Color(0xFFFFFFFF)
+val Gray = Color(0xFF808080)
+val Red = Color(0xFFFF0000)
+val Green = Color(0xFF00FF00)
+val Blue = Color(0xFF0000FF)
+val Yellow = Color(0xFFFFFF00)
+val Pink = Color(0xFFFFC0CB)
+val Cyan = Color(0xFF00FFFF)
+val Magenta = Color(0xFFFF00FF)
+val Purple = Color(0xFF800080)
+val Orange = Color(0xFFFF8000)
+val Brown = Color(0xFF804000)
+val Lime = Color(0xFFC0FF00)
+val Maroon = Color(0xFF800000)
+val Azure = Color(0xFF0080FF)
+val Lavender = Color(0xFFB57EDC)
+val Coral = Color(0xFFFF7F50)
+val Navy = Color(0xFF000080)
+val Beige = Color(0xFFF5F5DC)
+val Cream = Color(0xFFFFFDD0)
+val Khaki = Color(0xFFC3B091)
+val Gold = Color(0xFFFFD700)
+val Crimson = Color(0xFFDC143C)
+val Indigo = Color(0xFF4B0082)
