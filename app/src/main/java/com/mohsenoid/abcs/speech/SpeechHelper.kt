@@ -1,31 +1,45 @@
 package com.mohsenoid.abcs.speech
 
 import android.content.Context
+import android.content.res.Configuration
 import android.speech.tts.TextToSpeech
-import android.util.Log
+import androidx.annotation.StringRes
 import java.util.Locale
+import kotlin.coroutines.resume
+import kotlin.coroutines.suspendCoroutine
 
-class SpeechHelper(context: Context) {
+class SpeechHelper(
+    private val context: Context,
+) {
+
+    private lateinit var localeContext: Context
 
     private lateinit var textToSpeech: TextToSpeech
 
-    var initState = InitState.IDLE
+    private var initState = InitState.IDLE
 
-    init {
+    suspend fun init(locale: Locale): Result<Unit> = suspendCoroutine { continuation ->
         initState = InitState.INITIALIZING
 
+        val config = Configuration().apply {
+            setTo(context.resources.configuration)
+            setLocale(locale)
+        }
+        this.localeContext = context.createConfigurationContext(config)
+
         textToSpeech = TextToSpeech(context) { initResult ->
-            initState = if (initResult == TextToSpeech.SUCCESS) {
-                val languageResult = textToSpeech.setLanguage(Locale.ENGLISH)
+            if (initResult == TextToSpeech.SUCCESS) {
+                val languageResult = textToSpeech.setLanguage(locale)
                 if (languageResult == TextToSpeech.SUCCESS) {
-                    InitState.SUCCESS
+                    initState = InitState.SUCCESS
+                    continuation.resume(Result.success(Unit))
                 } else {
-                    Log.w(TAG, "Error setting language")
-                    InitState.ERROR
+                    initState = InitState.ERROR
+                    continuation.resume(Result.failure(Exception("Error setting language")))
                 }
             } else {
-                Log.w(TAG, "Error initializing")
-                InitState.ERROR
+                initState = InitState.ERROR
+                continuation.resume(Result.failure(Exception("Error initializing")))
             }
         }
     }
@@ -36,11 +50,13 @@ class SpeechHelper(context: Context) {
         }
     }
 
-    enum class InitState {
-        IDLE, INITIALIZING, SUCCESS, ERROR
+    fun speak(@StringRes text: Int) {
+        if (initState == InitState.SUCCESS) {
+            textToSpeech.speak(localeContext.getString(text), TextToSpeech.QUEUE_FLUSH, null)
+        }
     }
 
-    companion object {
-        const val TAG = "SpeechHelper"
+    enum class InitState {
+        IDLE, INITIALIZING, SUCCESS, ERROR
     }
 }

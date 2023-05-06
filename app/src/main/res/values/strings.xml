@@ -1,3 +1,50 @@
 <resources>
     <string name="app_name">ABCs</string>
+
+    <string name="selector_alphabets">ABCs</string>
+    <string name="selector_numbers">123s</string>
+    <string name="selector_shapes">Shapes</string>
+    <string name="selector_colors">Colors</string>
+    <string name="selector_dial">Dial</string>
+
+    <string name="shape_square">Square</string>
+    <string name="shape_circle">Circle</string>
+    <string name="shape_triangle">Triangle</string>
+    <string name="shape_oval">Oval</string>
+    <string name="shape_rectangle">Rectangle</string>
+    <string name="shape_diamond">Diamond</string>
+    <string name="shape_heart">Heart</string>
+    <string name="shape_arrow">Arrow</string>
+    <string name="shape_pentagon">Pentagon</string>
+    <string name="shape_hexagon">Hexagon</string>
+    <string name="shape_cross">Cross</string>
+    <string name="shape_star">Star</string>
+    <string name="shape_parallelogram">Parallelogram</string>
+    <string name="shape_trapezoid">Trapezoid</string>
+
+    <string name="color_red">Red</string>
+    <string name="color_green">Green</string>
+    <string name="color_blue">Blue</string>
+    <string name="color_white">White</string>
+    <string name="color_black">Black</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_pink">Pink</string>
+    <string name="color_magenta">Magenta</string>
+    <string name="color_yellow">Yellow</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_purple">Purple</string>
+    <string name="color_brown">Brown</string>
+    <string name="color_gray">Gray</string>
+    <string name="color_lime">Lime</string>
+    <string name="color_maroon">Maroon</string>
+    <string name="color_lavender">Lavender</string>
+    <string name="color_coral">Coral</string>
+    <string name="color_navy">Navy</string>
+    <string name="color_beige">Beige</string>
+    <string name="color_cream">Cream</string>
+    <string name="color_khaki">Khaki</string>
+    <string name="color_gold">Gold</string>
+    <string name="color_crimson">Crimson</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_azure">Azure</string>
 </resources>

@@ -41,22 +41,22 @@ class ShapesViewModel(private val speechHelper: SpeechHelper) : ViewModel() {
     }
 
     companion object {
-        val SHAPES: List<Pair<String, Int>>
+        val SHAPES: List<Pair<Int, Int>>
             get() = listOf(
-                "Square" to R.drawable.square,
-                "Circle" to R.drawable.circle,
-                "Triangle" to R.drawable.triangle,
-                "Oval" to R.drawable.oval,
-                "Rectangle" to R.drawable.rectangle,
-                "Diamond" to R.drawable.diamond,
-                "Heart" to R.drawable.heart,
-                "Arrow" to R.drawable.arrow,
-                "Pentagon" to R.drawable.pentagon,
-                "Hexagon" to R.drawable.hexagon,
-                "Cross" to R.drawable.cross,
-                "Star" to R.drawable.star,
-                "Parallelogram" to R.drawable.parallelogram,
-                "Trapezoid" to R.drawable.trapezoid,
+                R.string.shape_square to R.drawable.square,
+                R.string.shape_circle to R.drawable.circle,
+                R.string.shape_triangle to R.drawable.triangle,
+                R.string.shape_oval to R.drawable.oval,
+                R.string.shape_rectangle to R.drawable.rectangle,
+                R.string.shape_diamond to R.drawable.diamond,
+                R.string.shape_heart to R.drawable.heart,
+                R.string.shape_arrow to R.drawable.arrow,
+                R.string.shape_pentagon to R.drawable.pentagon,
+                R.string.shape_hexagon to R.drawable.hexagon,
+                R.string.shape_cross to R.drawable.cross,
+                R.string.shape_star to R.drawable.star,
+                R.string.shape_parallelogram to R.drawable.parallelogram,
+                R.string.shape_trapezoid to R.drawable.trapezoid,
             )
     }
 }

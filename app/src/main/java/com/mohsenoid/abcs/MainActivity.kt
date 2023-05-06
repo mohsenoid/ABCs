@@ -1,5 +1,7 @@
 package com.mohsenoid.abcs
 
+import android.content.Context
+import android.content.ContextWrapper
 import android.os.Build
 import android.os.Bundle
 import android.view.WindowInsets
@@ -25,14 +27,21 @@ import com.mohsenoid.abcs.dial.DialViewModel
 import com.mohsenoid.abcs.numbers.NumbersScreen
 import com.mohsenoid.abcs.numbers.NumbersViewModel
 import com.mohsenoid.abcs.selector.SelectorScreen
+import com.mohsenoid.abcs.selector.SelectorViewModel
 import com.mohsenoid.abcs.selector.model.SelectorItem
 import com.mohsenoid.abcs.shapes.ShapesScreen
 import com.mohsenoid.abcs.shapes.ShapesViewModel
 import com.mohsenoid.abcs.theme.ABCsTheme
+import com.mohsenoid.abcs.util.AppState
 import com.mohsenoid.abcs.util.NavRoute
+import org.koin.android.ext.android.inject
 import org.koin.androidx.compose.koinViewModel
+import java.util.Locale
+
 
 class MainActivity : ComponentActivity() {
+
+    private val appState: AppState by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -52,35 +61,44 @@ class MainActivity : ComponentActivity() {
                         composable(
                             route = NavRoute.SelectorScreen.route
                         ) {
+                            val viewModel = koinViewModel<SelectorViewModel>()
+                            val state by viewModel.uiState.collectAsStateWithLifecycle()
+
                             SelectorScreen(
-                                modifier = Modifier.fillMaxSize(),
+                                state = state,
                                 selectorItems = listOf(
                                     SelectorItem(
-                                        text = "ABCs",
+                                        text = R.string.selector_alphabets,
                                         icon = R.drawable.ic_abc,
                                         onClick = { navController.navigate(NavRoute.AlphabetsScreen.route) }
                                     ),
                                     SelectorItem(
-                                        text = "123s",
+                                        text = R.string.selector_numbers,
                                         icon = R.drawable.ic_123,
                                         onClick = { navController.navigate(NavRoute.NumbersScreen.route) }
                                     ),
                                     SelectorItem(
-                                        text = "Shapes",
+                                        text = R.string.selector_shapes,
                                         icon = R.drawable.ic_shape,
                                         onClick = { navController.navigate(NavRoute.ShapesScreen.route) }
                                     ),
                                     SelectorItem(
-                                        text = "Colors",
+                                        text = R.string.selector_colors,
                                         icon = R.drawable.ic_color,
                                         onClick = { navController.navigate(NavRoute.ColorsScreen.route) }
                                     ),
                                     SelectorItem(
-                                        text = "Dial",
+                                        text = R.string.selector_dial,
                                         icon = R.drawable.ic_dial,
                                         onClick = { navController.navigate(NavRoute.DialScreen.route) }
                                     ),
-                                )
+                                ),
+
+                                modifier = Modifier.fillMaxSize(),
+                                onLocaleChanged = { newLocale ->
+                                    viewModel.onLocaleChanged(newLocale)
+                                    restartActivity()
+                                },
                             )
                         }
 
@@ -181,5 +199,24 @@ class MainActivity : ComponentActivity() {
                 systemBarsBehavior = WindowInsetsController.BEHAVIOR_SHOW_TRANSIENT_BARS_BY_SWIPE
             }
         }
+    }
+
+    override fun attachBaseContext(newBase: Context) {
+        super.attachBaseContext(ContextWrapper(newBase.setLocale()))
+    }
+
+    private fun Context.setLocale(): Context {
+        val locale = appState.loadLocale()
+        Locale.setDefault(locale)
+        val config = resources.configuration
+        config.setLocale(locale)
+        config.setLayoutDirection(locale)
+        return createConfigurationContext(config)
+    }
+
+    private fun restartActivity() {
+        val intent = intent
+        finish()
+        startActivity(intent)
     }
 }

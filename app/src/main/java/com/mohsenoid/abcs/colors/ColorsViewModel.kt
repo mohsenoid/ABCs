@@ -2,6 +2,7 @@ package com.mohsenoid.abcs.colors
 
 import androidx.compose.ui.graphics.Color
 import androidx.lifecycle.ViewModel
+import com.mohsenoid.abcs.R
 import com.mohsenoid.abcs.colors.model.ColorMode
 import com.mohsenoid.abcs.colors.model.ColorsUiState
 import com.mohsenoid.abcs.speech.SpeechHelper
@@ -87,41 +88,41 @@ class ColorsViewModel(private val speechHelper: SpeechHelper) : ViewModel() {
     }
 
     companion object {
-        val BASIC_COLORS: List<Pair<String, Color>>
+        val BASIC_COLORS: List<Pair<Int, Color>>
             get() = listOf(
-                "Red" to Red,
-                "Green" to Green,
-                "Blue" to Blue,
-                "White" to White,
-                "Black" to Black,
+                R.string.color_red to Red,
+                R.string.color_green to Green,
+                R.string.color_blue to Blue,
+                R.string.color_white to White,
+                R.string.color_black to Black,
             )
 
-        val ADVANCED_COLORS: List<Pair<String, Color>>
-            get() = BASIC_COLORS + listOf(
-                "Cyan" to Cyan,
-                "Pink" to Pink,
-                "Magenta" to Magenta,
-                "Yellow" to Yellow,
-                "Orange" to Orange,
-                "Purple" to Purple,
-                "Brown" to Brown,
-                "Gray" to Gray,
+        val ADVANCED_COLORS: List<Pair<Int, Color>>
+            get() = listOf(
+                R.string.color_cyan to Cyan,
+                R.string.color_pink to Pink,
+                R.string.color_magenta to Magenta,
+                R.string.color_yellow to Yellow,
+                R.string.color_orange to Orange,
+                R.string.color_purple to Purple,
+                R.string.color_brown to Brown,
+                R.string.color_gray to Gray,
             )
 
-        val EXPERT_COLORS: List<Pair<String, Color>>
-            get() = ADVANCED_COLORS + listOf(
-                "Lime" to Lime,
-                "Maroon" to Maroon,
-                "Lavender" to Lavender,
-                "Coral" to Coral,
-                "Navy" to Navy,
-                "Beige" to Beige,
-                "Cream" to Cream,
-                "Khaki" to Khaki,
-                "Gold" to Gold,
-                "Crimson" to Crimson,
-                "Indigo" to Indigo,
-                "Azure" to Azure,
+        val EXPERT_COLORS: List<Pair<Int, Color>>
+            get() = listOf(
+                R.string.color_lime to Lime,
+                R.string.color_maroon to Maroon,
+                R.string.color_lavender to Lavender,
+                R.string.color_coral to Coral,
+                R.string.color_navy to Navy,
+                R.string.color_beige to Beige,
+                R.string.color_cream to Cream,
+                R.string.color_khaki to Khaki,
+                R.string.color_gold to Gold,
+                R.string.color_crimson to Crimson,
+                R.string.color_indigo to Indigo,
+                R.string.color_azure to Azure,
             )
     }
 }

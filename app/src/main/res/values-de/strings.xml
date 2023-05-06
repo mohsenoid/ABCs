@@ -1,0 +1,50 @@
+<resources>
+    <string name="app_name">ABCs</string>
+
+    <string name="selector_alphabets">ABCs</string>
+    <string name="selector_numbers">123s</string>
+    <string name="selector_shapes">Formen</string>
+    <string name="selector_colors">Farben</string>
+    <string name="selector_dial">WFählen</string>
+
+    <string name="shape_square">Quadrat</string>
+    <string name="shape_circle">Kreis</string>
+    <string name="shape_triangle">Dreieck</string>
+    <string name="shape_oval">Oval</string>
+    <string name="shape_rectangle">Rechteck</string>
+    <string name="shape_diamond">Diamant</string>
+    <string name="shape_heart">Herz</string>
+    <string name="shape_arrow">Pfeil</string>
+    <string name="shape_pentagon">Pentagon</string>
+    <string name="shape_hexagon">Hexagon</string>
+    <string name="shape_cross">Kreuz</string>
+    <string name="shape_star">Stern</string>
+    <string name="shape_parallelogram">Parallelogramm</string>
+    <string name="shape_trapezoid">Trapez</string>
+
+    <string name="color_red">Rot</string>
+    <string name="color_green">Grün</string>
+    <string name="color_blue">Blau</string>
+    <string name="color_white">Weiß</string>
+    <string name="color_black">Schwarz</string>
+    <string name="color_cyan">Cyan</string>
+    <string name="color_pink">Rosa</string>
+    <string name="color_magenta">Magenta</string>
+    <string name="color_yellow">Gelb</string>
+    <string name="color_orange">Orange</string>
+    <string name="color_purple">Lila</string>
+    <string name="color_brown">Braun</string>
+    <string name="color_gray">Gray</string>
+    <string name="color_lime">Kalk</string>
+    <string name="color_maroon">Maroon</string>
+    <string name="color_lavender">Lavendel</string>
+    <string name="color_coral">Koralle</string>
+    <string name="color_navy">Navy</string>
+    <string name="color_beige">Beige</string>
+    <string name="color_cream">Creme</string>
+    <string name="color_khaki">Khaki</string>
+    <string name="color_gold">Gold</string>
+    <string name="color_crimson">Karminrot</string>
+    <string name="color_indigo">Indigo</string>
+    <string name="color_azure">Azurblau</string>
+</resources>
